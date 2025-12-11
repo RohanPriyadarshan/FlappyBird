@@ -1,0 +1,118 @@
+/* Game-specific styling */
+.bird {
+  background: radial-gradient(circle at 70% 40%, #ffe9a5 0 45%, #f5c400 55%);
+  border: 2px solid #000;
+  border-radius: 40% 60% 50% 50%;
+  box-shadow: 0 2px 0 #000, 0 5px 0 rgba(0, 0, 0, 0.15),
+    0 0 12px rgba(255, 231, 150, 0.65);
+  position: absolute;
+}
+
+.bird::after {
+  /* beak */
+  content: "";
+  position: absolute;
+  right: -8px;
+  top: 12px;
+  width: 10px;
+  height: 6px;
+  background: linear-gradient(90deg, #f59e0b, #b45309);
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
+  border: 1px solid #000;
+  border-left: none;
+}
+
+.bird::before {
+  /* wing */
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 10px;
+  width: 14px;
+  height: 10px;
+  background: linear-gradient(135deg, #fce085, #f59e0b);
+  border: 2px solid #000;
+  border-radius: 50%;
+  transform: rotate(-10deg);
+}
+
+.pipe {
+  position: absolute;
+  background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.05),
+      rgba(255, 255, 255, 0.08)
+    ),
+    linear-gradient(180deg, #33d17a 0%, #1ea45c 100%);
+  border: 2px solid #0c3c22;
+  box-shadow: inset 4px 0 0 rgba(0, 0, 0, 0.15),
+    inset -4px 0 0 rgba(255, 255, 255, 0.1);
+}
+
+.pipe::after {
+  /* Pipe rim */
+  content: "";
+  position: absolute;
+  left: -6px;
+  width: calc(100% + 12px);
+  height: 16px;
+  background: linear-gradient(180deg, #28c76f, #1a9d54);
+  border: 2px solid #0c3c22;
+  box-shadow: inset 3px 0 0 rgba(0, 0, 0, 0.1),
+    inset -3px 0 0 rgba(255, 255, 255, 0.08);
+}
+
+.pipe-top::after {
+  top: -14px;
+  border-bottom: none;
+}
+
+.pipe-bottom::after {
+  bottom: -14px;
+  border-top: none;
+}
+
+.game-area {
+  background: radial-gradient(circle at 20% 15%, rgba(255, 255, 255, 0.28), transparent 30%),
+    radial-gradient(circle at 80% 12%, rgba(255, 255, 255, 0.24), transparent 28%),
+    linear-gradient(180deg, #8dd5ff 0%, #5bb7f7 60%, #4aa3e0 100%);
+  position: relative;
+}
+
+.floating-clouds {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle 40px at 20% 25%, rgba(255, 255, 255, 0.5), transparent 60%),
+    radial-gradient(circle 30px at 50% 20%, rgba(255, 255, 255, 0.45), transparent 60%),
+    radial-gradient(circle 50px at 75% 30%, rgba(255, 255, 255, 0.5), transparent 60%);
+  animation: float 16s linear infinite;
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.ground {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 60px;
+  background: repeating-linear-gradient(
+      -45deg,
+      rgba(0, 0, 0, 0.1) 0,
+      rgba(0, 0, 0, 0.1) 8px,
+      transparent 8px,
+      transparent 16px
+    ),
+    linear-gradient(180deg, #c2f25c 0%, #8ac926 100%);
+  border-top: 3px solid #5f7d1c;
+  box-shadow: inset 0 6px 0 rgba(0, 0, 0, 0.12);
+}
+
+@keyframes float {
+  0% {
+    background-position: 0 0, 0 0, 0 0;
+  }
+  100% {
+    background-position: 60px 0, -60px 0, 40px 0;
+  }
+}
