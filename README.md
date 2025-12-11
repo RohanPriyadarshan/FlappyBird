@@ -1,4 +1,4 @@
-# 🎮 Flappy Bird – Web Game (React)
+# 🎮 Flappy Bird – Web Game
 
 ## Tech Stack:
 React, JavaScript, HTML, CSS
